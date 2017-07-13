@@ -14,14 +14,12 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 let helmet = require('helmet');
 let path = require('path');
-let Table = require('./model/Table')
-
+let YouTube = require('youtube-node');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
-
 
 
 /**
@@ -31,6 +29,10 @@ app.use(helmet());
  */
 
 const apiYoutubeKey = "AIzaSyCWO4Gl7Hgl58HxFy0ehAwkSU673xH5UDY";
+
+const youTube = new YouTube();
+
+youTube.setKey(apiYoutubeKey);
 
 /**
  * Module RethinkDb
@@ -53,11 +55,65 @@ let connection = r.connect({
     db: "test" //your database
 }).then((connection) => { // une fois qu'il a effectuer une connexion
 
+    let limit = 8;
 
     app.get('/', (req, res) => {
-
+        youTube.search('Angular', limit, function (error, result) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(result)
+            }
+        });
     });
 
+
+    app.get('/more', (req, res) => {
+        limit += 8;
+
+        youTube.search('Angular', limit, function (error, result) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(result)
+            }
+        });
+    });
+
+    app.get('/detail/:id', (req, res) => {
+        let id = req.params.id;
+        youTube.getById(id, function (error, result) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(result);
+            }
+        });
+    });
+
+    app.get('/search/:content', (req, res) => {
+        let content = req.params.content;
+
+        youTube.search(content, 8, function (error, result) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(result)
+            }
+        });
+    });
+
+
+
+    app.post('/like', (req, res) => {
+        r.table('youtube').insert(req.body).run((res) => {
+
+        })
+    });
 
 
 });

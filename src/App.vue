@@ -1,24 +1,50 @@
 <template>
-  <v-app standalone class="app" id="app">
-    <v-toolbar  class="green" dark></v-toolbar>
+  <v-app dark>
+    <sidebar></sidebar>
+    <toolbar></toolbar>
+
     <main>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
-    </main>
-     <v-footer class="pa-3" >
-      <v-spacer></v-spacer>
-      <div>© {{ new Date().getFullYear() }}</div>
-    </v-footer>
+  </main>
+
+    
+  <navigation></navigation>
+
   </v-app>
 </template>
 
 <script>
+import Sidebar from '@/components/Sidebar'
+import Toolbar from '@/components/Toolbar'
+import Navigation from '@/components/Navigation'
+
+import {Store} from '@/Store.js'
+
 export default {
   name: 'app',
+  components: {sidebar: Sidebar, toolbar: Toolbar, navigation: Navigation},
+  data(){
+    return {
+    }
+  }
+  
   
 }
 </script>
 
-<style scoped>
+<style>
+  .input-group__details:after{
+    background-color: white;
+    height: 1px;
+  }
+  main{
+  }
+  #footer{
+  }
+  #container{
+    height: 600px;
+    overflow: auto;
+  }
 </style>

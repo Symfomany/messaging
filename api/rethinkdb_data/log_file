@@ -1,0 +1,14 @@
+2017-07-12T09:19:18.853146000 40.038562s notice: Recursively removing directory /Users/boyer/Desktop/checkpoint/api/rethinkdb_data/tmp
+2017-07-12T09:19:18.857500000 40.042920s notice: Initializing directory /Users/boyer/Desktop/checkpoint/api/rethinkdb_data
+2017-07-12T09:19:18.857641000 40.043055s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/boyer/Desktop/checkpoint/api/rethinkdb_data' did not already exist or is empty.)
+2017-07-12T09:19:18.857684000 40.043098s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-12T09:19:18.863770000 40.049185s notice: Running on Darwin 16.3.0 x86_64
+2017-07-12T09:19:18.863807000 40.049221s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/api/rethinkdb_data
+2017-07-12T09:19:18.983359000 40.168773s info: Automatically using cache size of 5069 MB
+2017-07-12T09:19:28.988365000 50.174372s notice: Listening for intracluster connections on port 29015
+2017-07-12T09:19:28.992734000 50.178740s notice: Listening for client driver connections on port 28015
+2017-07-12T09:19:28.992833000 50.178839s notice: Listening for administrative HTTP connections on port 8080
+2017-07-12T09:19:38.996616000 60.183156s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1022:45e:6484:e9a1%4, fe80::4535:96ea:3487:fb0%10, fe80::7c81:a5ff:fe1d:5dbe%9
+2017-07-12T09:19:48.997595000 70.184726s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1022:45e:6484:e9a1%4, fe80::4535:96ea:3487:fb0%10, fe80::7c81:a5ff:fe1d:5dbe%9
+2017-07-12T09:19:59.003142000 80.190805s notice: Listening on http addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1022:45e:6484:e9a1%4, fe80::4535:96ea:3487:fb0%10, fe80::7c81:a5ff:fe1d:5dbe%9
+2017-07-12T09:19:59.003149000 80.190813s notice: Server ready, "MacBook_Pro_de_boyer_local_u43" 0fe821b2-75a3-4759-bb2e-0a54caf09a79
