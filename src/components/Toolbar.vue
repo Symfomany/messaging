@@ -8,14 +8,17 @@
         single-line
         append-icon="search"
         v-model="data.search"
+        @keyup.native="searching"
         dark
         hide-details
       ></v-text-field>
+      
     </v-toolbar>
 </template>
 
 <script>
 import {Store} from '@/Store.js'
+import _ from 'lodash'
 
 export default {
   name: 'toolbar',
@@ -23,6 +26,12 @@ export default {
     return {
       data: Store.data
     }
+  },
+  methods: {
+    searching: _.debounce(() => {
+      Store.search();
+    }, 1000)
+
   }
 }
 </script>

@@ -8,6 +8,13 @@ let app = express()
 
 
 /**
+ * Socket.IO
+ */
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
+server.listen(4050);
+
+/**
  * Modules de Securité d'une API (logs, XSS securité etc...)
  */
 let cors = require('cors');
@@ -15,6 +22,15 @@ let bodyParser = require('body-parser');
 let helmet = require('helmet');
 let path = require('path');
 let YouTube = require('youtube-node');
+let Twitter = require('twitter');
+
+let clientTwitter = new Twitter({
+    consumer_key: 'Go042VQzGV8Nq2pGQnw5FtXe9',
+    consumer_secret: 'TPoVKuGV200Kd1ZZ8RpzEgje7bWTqJxthUpeBJtdlFIGfWQHws',
+    access_token_key: '885009123489853440-F8kZRZ1oJV9iW7Z3hSzFb0Rm6OeMIlw',
+    access_token_secret: 'OWZbiSBFvOoTebW1UzdawlPehcmj88KZdWT8YzDEHpXHM'
+});
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -94,7 +110,20 @@ let connection = r.connect({
         });
     });
 
-    app.get('/search/:content', (req, res) => {
+
+    app.get('/related/:id', (req, res) => {
+        let id = req.params.id;
+        youTube.related(id, 2, function (error, result) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                res.json(result);
+            }
+        });
+    });
+
+    app.get('/search/:content?', (req, res) => {
         let content = req.params.content;
 
         youTube.search(content, 8, function (error, result) {
@@ -107,14 +136,81 @@ let connection = r.connect({
         });
     });
 
-
-
-    app.post('/like', (req, res) => {
-        r.table('youtube').insert(req.body).run((res) => {
-
+    app.get('/comments/:id', (req, res) => {
+        let id = req.params.id;
+        r.db('youtube').table('comment').filter({ 'vid': id }).run(connection, (err, cursor) => {
+            cursor.toArray((err, tab) => {
+                return res.json(tab)
+            });
         })
     });
 
+    app.get('/already/:id', (req, res) => {
+        let id = req.params.id;
+        r.db('youtube').table('like').filter({ 'id': id }).isEmpty().run(connection, (err, response) => {
+            res.json(response);
+        })
+    });
+
+    app.get('/tweets', (req, res) => {
+        clientTwitter.get('statuses/home_timeline', function (error, tweets, response) {
+            if (error) throw error;
+            res.json(tweets);
+        });
+    });
+
+
+    app.post('/addcomments', (req, res) => {
+        r.db('youtube').table('comment').insert(req.body, { returnChanges: true }).run(connection, (err, response) => {
+            res.json(response.changes[0].new_val);
+        })
+    });
+
+    app.post('/removecomments', (req, res) => {
+        r.db('youtube').table('comment').get(req.body.id).delete().run(connection, (err, response) => {
+            res.json(true);
+        })
+    });
+
+
+    /**
+     * Realtime Routing
+     * J'écoute la connection utilisateur
+     */
+    io.on('connection', (socket) => {
+        app.post('/like', (req, res) => {
+
+            let status = `${req.body.title} . Video: https://www.youtube.com/watch?v=${req.body.id}`;
+            clientTwitter.post('statuses/update', { status: status }, function (error, tweet, response) {
+                if (error) throw error;
+                console.log(tweet);  // Tweet body. 
+                console.log(response);  // Raw response object. 
+            });
+
+            r.db('youtube').table('like').insert(req.body).run(connection, (err, response) => {
+                socket.broadcast.emit('liked', req.body.title);
+                res.json(true);
+            })
+        });
+    });
+
+
+    app.post('/dislike', (req, res) => {
+        r.db('youtube').table('like').get(req.body.id).delete().run(connection, (err, response) => {
+            res.json(true);
+        })
+    });
+
+
+    app.get('/likes', (req, res) => {
+
+
+        r.db('youtube').table('like').run(connection, (err, cursor) => {
+            cursor.toArray((err, tab) => {
+                return res.json(tab)
+            });
+        })
+    });
 
 });
 

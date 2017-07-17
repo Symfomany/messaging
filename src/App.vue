@@ -2,12 +2,14 @@
   <v-app dark>
     <sidebar></sidebar>
     <toolbar></toolbar>
-
+    <v-snackbar v-model="snackbar"> Un ami a ajouté une vidéo favorie
+        <v-btn flat class="pink--text" @click.native="snackbar = false">Close</v-btn>
+    </v-snackbar>
     <main>
       <v-container fluid>
         <router-view></router-view>
       </v-container>
-  </main>
+    </main>
 
     
   <navigation></navigation>
@@ -27,10 +29,14 @@ export default {
   components: {sidebar: Sidebar, toolbar: Toolbar, navigation: Navigation},
   data(){
     return {
+      snackbar: false
+    }
+  },
+  sockets:{
+    liked: function(val){
+      this.snackbar = true;
     }
   }
-  
-  
 }
 </script>
 

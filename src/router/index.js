@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import Favorites from '@/components/Favorites'
 import Detail from '@/components/Detail'
-import Stats from '@/components/Stats'
+import Twitter from '@/components/Twitter'
 import Comments from '@/components/Comments'
+import Comment from '@/components/Comment'
 
 Vue.use(Router)
 
@@ -26,14 +27,19 @@ export default new Router({
       component: Detail
     },
     {
-      path: '/stats',
-      name: 'Stats',
-      component: Stats
+      path: '/twitter',
+      name: 'Twitter',
+      component: Twitter
     },
     {
       path: '/comments',
       name: 'Comments',
       component: Comments
+    },
+    {
+      path: '/comment/:id',
+      name: 'Comment',
+      component: Comment
     }
   ]
 })

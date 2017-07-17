@@ -80,3 +80,52 @@
 2017-07-13T19:27:23.718145000 0.080508s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f
 2017-07-13T19:27:25.490074000 1.852580s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 6.
 2017-07-13T19:27:25.508245000 1.870751s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 6. Latest log index is 14.
+2017-07-14T10:34:33.876900000 0.022286s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-14T10:34:33.882655000 0.028039s notice: Running on Darwin 16.3.0 x86_64
+2017-07-14T10:34:33.882700000 0.028083s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-14T10:34:33.922878000 0.068261s info: Automatically using cache size of 5363 MB
+2017-07-14T10:34:33.924383000 0.069765s notice: Listening for intracluster connections on port 29015
+2017-07-14T10:34:33.942312000 0.087695s notice: Listening for client driver connections on port 28015
+2017-07-14T10:34:33.942437000 0.087820s notice: Listening for administrative HTTP connections on port 8080
+2017-07-14T10:34:33.944525000 0.089908s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::1837:9f4a:f4a1:89eb%4, fe80::2ca5:caff:fed6:c9c2%9, fe80::b532:b2d4:588e:74de%10
+2017-07-14T10:34:33.945129000 0.090512s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::1837:9f4a:f4a1:89eb%4, fe80::2ca5:caff:fed6:c9c2%9, fe80::b532:b2d4:588e:74de%10
+2017-07-14T10:34:33.945495000 0.090878s notice: Listening on http addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::1837:9f4a:f4a1:89eb%4, fe80::2ca5:caff:fed6:c9c2%9, fe80::b532:b2d4:588e:74de%10
+2017-07-14T10:34:33.945500000 0.090883s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f
+2017-07-14T10:34:35.308394000 1.453845s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 7.
+2017-07-14T10:34:35.337613000 1.483063s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 7. Latest log index is 18.
+2017-07-16T10:24:38.942781000 0.020912s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-16T10:24:38.946970000 0.025099s notice: Running on Darwin 16.3.0 x86_64
+2017-07-16T10:24:38.946999000 0.025128s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-16T10:24:38.979697000 0.057826s info: Automatically using cache size of 5325 MB
+2017-07-16T10:24:38.981118000 0.059247s notice: Listening for intracluster connections on port 29015
+2017-07-16T10:24:38.999497000 0.077626s notice: Listening for client driver connections on port 28015
+2017-07-16T10:24:38.999817000 0.077945s notice: Listening for administrative HTTP connections on port 8080
+2017-07-16T10:24:39.000636000 0.078764s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::ea7:7b6b:f604:a88b%10, fe80::1c2d:2d40:76e9:ad48%4, fe80::c44b:96ff:feaa:72a9%9
+2017-07-16T10:24:39.001566000 0.079695s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::ea7:7b6b:f604:a88b%10, fe80::1c2d:2d40:76e9:ad48%4, fe80::c44b:96ff:feaa:72a9%9
+2017-07-16T10:24:39.003375000 0.081504s notice: Listening on http addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::ea7:7b6b:f604:a88b%10, fe80::1c2d:2d40:76e9:ad48%4, fe80::c44b:96ff:feaa:72a9%9
+2017-07-16T10:24:39.003384000 0.081512s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f
+2017-07-16T10:24:40.112136000 1.190265s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 8.
+2017-07-16T10:24:40.133074000 1.211203s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 8. Latest log index is 21.
+2017-07-16T15:36:01.202520000 14754.606334s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Starting a new Raft election for term 1.
+2017-07-16T15:36:01.202825000 14754.606639s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Added replica on this server.
+2017-07-16T15:36:01.223938000 14754.627753s info: Table 3095d32a-218e-4895-bca3-7411008469c8: This server is Raft leader for term 1. Latest log index is 0.
+2017-07-16T16:36:09.175394000 17819.964394s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: Starting a new Raft election for term 1.
+2017-07-16T16:36:09.175653000 17819.964652s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: Added replica on this server.
+2017-07-16T16:36:09.196243000 17819.985242s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: This server is Raft leader for term 1. Latest log index is 0.
+2017-07-17T06:56:38.962502000 0.025871s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T06:56:38.967538000 0.030904s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T06:56:38.967574000 0.030938s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T06:56:39.000439000 0.063804s info: Automatically using cache size of 5503 MB
+2017-07-17T06:56:39.001898000 0.065262s notice: Listening for intracluster connections on port 29015
+2017-07-17T06:56:39.042518000 0.105883s notice: Listening for client driver connections on port 28015
+2017-07-17T06:56:39.042583000 0.105948s notice: Listening for administrative HTTP connections on port 8080
+2017-07-17T06:56:39.043691000 0.107056s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::109b:5b9:358c:3986%4, fe80::5c5b:76ff:fe81:a120%9, fe80::9a35:fd17:aac2:87d4%10
+2017-07-17T06:56:39.044442000 0.107807s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::109b:5b9:358c:3986%4, fe80::5c5b:76ff:fe81:a120%9, fe80::9a35:fd17:aac2:87d4%10
+2017-07-17T06:56:39.045149000 0.108514s notice: Listening on http addresses: 127.0.0.1, 192.168.1.37, ::1, fe80::1%1, fe80::109b:5b9:358c:3986%4, fe80::5c5b:76ff:fe81:a120%9, fe80::9a35:fd17:aac2:87d4%10
+2017-07-17T06:56:39.045344000 0.108708s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f
+2017-07-17T06:56:40.052572000 1.115937s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 9.
+2017-07-17T06:56:40.074967000 1.138332s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 9. Latest log index is 24.
+2017-07-17T06:56:40.674125000 1.737560s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: Starting a new Raft election for term 2.
+2017-07-17T06:56:40.699097000 1.762532s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: This server is Raft leader for term 2. Latest log index is 2.
+2017-07-17T06:56:40.922719000 1.986156s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Starting a new Raft election for term 2.
+2017-07-17T06:56:40.943669000 2.007104s info: Table 3095d32a-218e-4895-bca3-7411008469c8: This server is Raft leader for term 2. Latest log index is 2.

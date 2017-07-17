@@ -6,6 +6,7 @@ import router from './router'
 import Vuetify from 'vuetify'
 import VueResource from 'vue-resource';
 import 'vuetify/dist/vuetify.min.css'
+import VueSocketio from 'vue-socket.io';
 
 Vue.config.productionTip = false
 
@@ -19,7 +20,10 @@ Vue.use(VueResource);
  */
 Vue.use(Vuetify)
 
-
+/**
+ * Socket.IO 
+ */
+Vue.use(VueSocketio, 'http://localhost:4050');
 
 
 /* eslint-disable no-new */

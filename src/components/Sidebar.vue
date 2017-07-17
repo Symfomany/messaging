@@ -8,8 +8,10 @@
       enable-resize-watcher
       v-model="data.drawer"
     >
-      <v-list dense>
-        <v-list-tile v-for="item in items" :key="item">
+      <v-list>
+      
+       <v-list-tile :to="item.url" v-for="item in items" :key="item">
+          
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -18,6 +20,7 @@
               {{ item.text }}
             </v-list-tile-title>
           </v-list-tile-content>
+          
         </v-list-tile>
       </v-list>
   </v-navigation-drawer>
@@ -32,13 +35,24 @@ export default {
     return {
       data: Store.data,
       items: [
-        { icon: 'trending_up', text: 'Most Popular' },
-        { icon: 'subscriptions', text: 'Subscriptions' },
-        { icon: 'history', text: 'History' },
-        { icon: 'featured_play_list', text: 'Playlists' },
-        { icon: 'watch_later', text: 'Watch Later' }
+        { icon: 'home', text: 'Home', url: '/' },
+        { icon: 'subscriptions', text: 'Subscriptions', url: '/' },
+        { icon: 'history', text: 'History', url: '/' },
+        { icon: 'featured_play_list', text: 'Playlists', url: '/' },
+        { icon: 'watch_later', text: 'Watch Later', url: '/' }
       ]
     }
   }
 }
 </script>
+
+<style>
+
+.application--dark .navigation-drawer .list, .application--dark .navigation-drawer .subheader, .application--dark .navigation-drawer a{
+    font-size: 18px;
+    text-decoration: none;
+}
+.navigation-drawer>.list .list__tile--active>:first-child .icon{
+  color: white;
+}
+</style>

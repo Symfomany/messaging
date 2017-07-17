@@ -9,9 +9,9 @@
             <span>Favorites</span>
             <v-icon>star</v-icon>
           </v-btn>
-          <v-btn dark light @click.native="naviguate('stats')" :value="'stats'">
-            <span>Stats</span>
-            <v-icon>trending_up</v-icon>
+          <v-btn dark light @click.native="naviguate('twitter')" :value="'stats'">
+            <span>Twitter</span>
+            <v-icon class="fa fa-twitter"></v-icon>
           </v-btn>
           <v-btn light dark @click.native="naviguate('comments')" :value="'comments'">
             <span>Comments</span>
@@ -38,6 +38,9 @@ export default {
                 break;
             case "favorites":
                 this.$router.push('/favorites')
+                break;
+            case "twitter":
+                this.$router.push('/twitter')
                 break;
             case "stats":
                 this.$router.push('/stats')

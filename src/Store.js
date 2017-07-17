@@ -7,11 +7,14 @@ export const Store = {
 
     data: {
         drawer: false,
-        search: '',
+        search: 'Angular',
+        videos: []
     },
 
     load() {
-        return axios.get('http://localhost:3000/');
+        axios.get('http://localhost:3000/').then((res) => {
+            this.data.videos = res.data.items
+        })
     },
 
     one(id) {
@@ -22,7 +25,44 @@ export const Store = {
         return axios.get(`http://localhost:3000/more`);
     },
 
-    search(word = "Angular") {
-        return axios.get(`http://localhost:3000/search/${word}`);
+    loadTweets() {
+        return axios.get(`http://localhost:3000/tweets`);
+    },
+
+    search() {
+        return axios.get(`http://localhost:3000/search/${this.data.search}`).then((res) => {
+            console.log(res.data.items)
+            this.data.videos = res.data.items
+        })
+    },
+
+    related(id) {
+        return axios.get(`http://localhost:3000/related/${id}`);
+    },
+
+    getComments(id) {
+        return axios.get(`http://localhost:3000/comments/${id}`);
+    },
+
+    addComment(id, content) {
+        return axios.post('http://localhost:3000/addcomments/', { vid: id, content: content, created: new Date() });
+    },
+
+    removeComment(id, content) {
+        return axios.post('http://localhost:3000/removecomments/', { id: id });
+    },
+
+    like(id, title) {
+        return axios.post(`http://localhost:3000/like`, { id: id, title: title, created: new Date() });
+    },
+
+    dislike(id) {
+        return axios.post(`http://localhost:3000/dislike`, { id: id });
+    },
+
+    already(id) {
+        return axios.get(`http://localhost:3000/already/${id}`);
     }
+
+
 }

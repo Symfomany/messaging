@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "nodemon server.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "socket.io": "^2.0.3",
+    "twitter": "^1.7.1"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
