@@ -12,7 +12,8 @@ let app = express()
  */
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
-server.listen(4050);
+// server.listen(3000);
+
 
 /**
  * Modules de Securité d'une API (logs, XSS securité etc...)
@@ -23,6 +24,39 @@ let helmet = require('helmet');
 let path = require('path');
 let YouTube = require('youtube-node');
 let Twitter = require('twitter');
+let { FB, FacebookApiException } = require('fb');
+
+// let myApp = FB.extend({ appId: '446979352009018', appSecret: '86d4afd9abbeec2dec8bb1ad3eba4eb8' });
+
+// FB.api('oauth/access_token', {
+//     client_id: '446979352009018',
+//     client_secret: '86d4afd9abbeec2dec8bb1ad3eba4eb8',
+//     grant_type: 'client_credentials'
+// }, function (res) {
+//     if (!res || res.error) {
+//         console.log(!res ? 'error occurred' : res.error);
+//         return;
+//     }
+//     var accessToken = res.access_token;
+//     console.log(accessToken);
+
+//     FB.setAccessToken(accessToken);
+
+//     var body = 'My first post using facebook-node-sdk';
+//     FB.api('me', { fields: ['id', 'name'], access_token: accessToken }, function (res) {
+//         console.log(res);
+//     });
+
+// });
+// FB.api('4', function (res) {
+//     if (!res || res.error) {
+//         console.log(!res ? 'error occurred' : res.error);
+//         return;
+//     }
+//     console.log(res.id);
+//     console.log(res.name);
+// });
+
 
 let clientTwitter = new Twitter({
     consumer_key: 'Go042VQzGV8Nq2pGQnw5FtXe9',
@@ -63,6 +97,14 @@ app.use(function (error, request, response, next) {
     response.json({ error: error.message });
 });
 
+
+
+app.get('/getToken', (req, res) => {
+    FB.getLoginUrl({
+        scope: 'email,user_likes',
+        redirect_uri: 'http://example.com/'
+    });
+});
 
 /**
  * Connection with RethinkDB

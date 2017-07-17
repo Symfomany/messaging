@@ -7,6 +7,12 @@
     </v-snackbar>
     <main>
       <v-container fluid>
+      <fb-signin-button
+        :params="fbSignInParams"
+        @success="onSignInSuccess"
+        @error="onSignInError">
+       Se connecter avec Julien Boyer
+      </fb-signin-button>
         <router-view></router-view>
       </v-container>
     </main>
@@ -24,13 +30,32 @@ import Navigation from '@/components/Navigation'
 
 import {Store} from '@/Store.js'
 
+
 export default {
   name: 'app',
   components: {sidebar: Sidebar, toolbar: Toolbar, navigation: Navigation},
   data(){
     return {
-      snackbar: false
+      snackbar: false,
+      url: '',
+      fbSignInParams: {
+        scope: 'email,user_likes',
+        return_scopes: true
+      }
     }
+  },
+  methods: {
+    onSignInSuccess (response) {
+      FB.api('/me', dude => {
+        console.log(`Good to see you, ${dude.name}.`)
+      })
+    },
+    onSignInError (error) {
+      console.log('OH NOES', error)
+    }
+  },
+  created(){
+
   },
   sockets:{
     liked: function(val){
@@ -41,6 +66,14 @@ export default {
 </script>
 
 <style>
+.fb-signin-button {
+  /* This is where you control how the button looks. Be creative! */
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background-color: #4267b2;
+  color: #fff;
+}
   .input-group__details:after{
     background-color: white;
     height: 1px;
@@ -49,6 +82,7 @@ export default {
   }
   #footer{
   }
+
   #container{
     height: 600px;
     overflow: auto;
