@@ -12,7 +12,7 @@ let app = express()
  */
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
-// server.listen(3000);
+server.listen(4050);
 
 
 /**
@@ -24,38 +24,6 @@ let helmet = require('helmet');
 let path = require('path');
 let YouTube = require('youtube-node');
 let Twitter = require('twitter');
-let { FB, FacebookApiException } = require('fb');
-
-// let myApp = FB.extend({ appId: '446979352009018', appSecret: '86d4afd9abbeec2dec8bb1ad3eba4eb8' });
-
-// FB.api('oauth/access_token', {
-//     client_id: '446979352009018',
-//     client_secret: '86d4afd9abbeec2dec8bb1ad3eba4eb8',
-//     grant_type: 'client_credentials'
-// }, function (res) {
-//     if (!res || res.error) {
-//         console.log(!res ? 'error occurred' : res.error);
-//         return;
-//     }
-//     var accessToken = res.access_token;
-//     console.log(accessToken);
-
-//     FB.setAccessToken(accessToken);
-
-//     var body = 'My first post using facebook-node-sdk';
-//     FB.api('me', { fields: ['id', 'name'], access_token: accessToken }, function (res) {
-//         console.log(res);
-//     });
-
-// });
-// FB.api('4', function (res) {
-//     if (!res || res.error) {
-//         console.log(!res ? 'error occurred' : res.error);
-//         return;
-//     }
-//     console.log(res.id);
-//     console.log(res.name);
-// });
 
 
 let clientTwitter = new Twitter({
@@ -81,7 +49,6 @@ app.use(helmet());
 const apiYoutubeKey = "AIzaSyCWO4Gl7Hgl58HxFy0ehAwkSU673xH5UDY";
 
 const youTube = new YouTube();
-
 youTube.setKey(apiYoutubeKey);
 
 /**
@@ -99,12 +66,6 @@ app.use(function (error, request, response, next) {
 
 
 
-app.get('/getToken', (req, res) => {
-    FB.getLoginUrl({
-        scope: 'email,user_likes',
-        redirect_uri: 'http://example.com/'
-    });
-});
 
 /**
  * Connection with RethinkDB
@@ -116,7 +77,7 @@ let connection = r.connect({
     let limit = 8;
 
     app.get('/', (req, res) => {
-        youTube.search('Angular', limit, function (error, result) {
+        youTube.search('Angular', limit, (error, result) => {
             if (error) {
                 console.log(error);
             }
@@ -130,7 +91,7 @@ let connection = r.connect({
     app.get('/more', (req, res) => {
         limit += 8;
 
-        youTube.search('Angular', limit, function (error, result) {
+        youTube.search('Angular', limit, (error, result) => {
             if (error) {
                 console.log(error);
             }
@@ -142,7 +103,7 @@ let connection = r.connect({
 
     app.get('/detail/:id', (req, res) => {
         let id = req.params.id;
-        youTube.getById(id, function (error, result) {
+        youTube.getById(id, (error, result) => {
             if (error) {
                 console.log(error);
             }
@@ -152,10 +113,9 @@ let connection = r.connect({
         });
     });
 
-
     app.get('/related/:id', (req, res) => {
         let id = req.params.id;
-        youTube.related(id, 2, function (error, result) {
+        youTube.related(id, 2, (error, result) => {
             if (error) {
                 console.log(error);
             }
@@ -201,7 +161,6 @@ let connection = r.connect({
         });
     });
 
-
     app.post('/addcomments', (req, res) => {
         r.db('youtube').table('comment').insert(req.body, { returnChanges: true }).run(connection, (err, response) => {
             res.json(response.changes[0].new_val);
@@ -217,7 +176,6 @@ let connection = r.connect({
 
     /**
      * Realtime Routing
-     * J'écoute la connection utilisateur
      */
     io.on('connection', (socket) => {
         app.post('/like', (req, res) => {
@@ -225,8 +183,6 @@ let connection = r.connect({
             let status = `${req.body.title} . Video: https://www.youtube.com/watch?v=${req.body.id}`;
             clientTwitter.post('statuses/update', { status: status }, function (error, tweet, response) {
                 if (error) throw error;
-                console.log(tweet);  // Tweet body. 
-                console.log(response);  // Raw response object. 
             });
 
             r.db('youtube').table('like').insert(req.body).run(connection, (err, response) => {
@@ -245,8 +201,6 @@ let connection = r.connect({
 
 
     app.get('/likes', (req, res) => {
-
-
         r.db('youtube').table('like').run(connection, (err, cursor) => {
             cursor.toArray((err, tab) => {
                 return res.json(tab)
@@ -255,8 +209,6 @@ let connection = r.connect({
     });
 
 });
-
-
 
 
 

@@ -8,6 +8,12 @@ import VueResource from 'vue-resource';
 import 'vuetify/dist/vuetify.min.css'
 import VueSocketio from 'vue-socket.io';
 import FBSignInButton from 'vue-facebook-signin-button'
+import { Store } from '@/Store.js'
+
+
+Store.checkAuth();
+
+
 Vue.config.productionTip = false
 
 /**
@@ -43,7 +49,7 @@ window.fbAsyncInit = function () {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js";
+  js.src = "//connect.facebook.net/fr_FR/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 

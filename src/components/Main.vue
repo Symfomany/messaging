@@ -1,6 +1,6 @@
 <template>
     <v-layout row wrap>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs10 sm6 offset-sm3>
         <v-card>
           <list></list>
         </v-card>

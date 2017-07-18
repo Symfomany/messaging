@@ -129,3 +129,52 @@
 2017-07-17T06:56:40.699097000 1.762532s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: This server is Raft leader for term 2. Latest log index is 2.
 2017-07-17T06:56:40.922719000 1.986156s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Starting a new Raft election for term 2.
 2017-07-17T06:56:40.943669000 2.007104s info: Table 3095d32a-218e-4895-bca3-7411008469c8: This server is Raft leader for term 2. Latest log index is 2.
+2017-07-17T08:45:18.661800000 40.047507s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T08:45:18.668978000 40.054680s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T08:45:18.669025000 40.054726s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T08:45:18.709687000 40.095388s info: Automatically using cache size of 5297 MB
+2017-07-17T08:45:28.711603000 50.097974s notice: Listening for intracluster connections on port 29015
+2017-07-17T08:45:28.752375000 50.138745s notice: Listening for client driver connections on port 28015
+2017-07-17T08:45:28.752442000 50.138812s notice: Listening for administrative HTTP connections on port 8080
+2017-07-17T08:45:29.933673000 51.320111s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: Starting a new Raft election for term 3.
+2017-07-17T08:45:29.964804000 51.351242s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: This server is Raft leader for term 3. Latest log index is 5.
+2017-07-17T08:45:30.365145000 51.751582s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Starting a new Raft election for term 3.
+2017-07-17T08:45:30.388299000 51.774738s info: Table 3095d32a-218e-4895-bca3-7411008469c8: This server is Raft leader for term 3. Latest log index is 5.
+2017-07-17T08:45:30.563719000 51.950224s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 10.
+2017-07-17T08:45:30.588815000 51.975319s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 10. Latest log index is 27.
+2017-07-17T08:45:38.756149000 60.143121s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1cc1:fa97:7a49:f668%4, fe80::6343:1365:240d:1959%10, fe80::bcc8:9dff:fe92:e23b%9
+2017-07-17T08:45:48.765563000 70.153206s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1cc1:fa97:7a49:f668%4, fe80::6343:1365:240d:1959%10, fe80::bcc8:9dff:fe92:e23b%9
+2017-07-17T08:45:58.766740000 80.154986s notice: Listening on http addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::1cc1:fa97:7a49:f668%4, fe80::6343:1365:240d:1959%10, fe80::bcc8:9dff:fe92:e23b%9
+2017-07-17T08:45:58.766755000 80.155000s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f
+2017-07-17T15:42:59.857403000 40.029801s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T15:42:59.863275000 40.035668s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T15:42:59.863312000 40.035703s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T15:42:59.895709000 40.068101s info: Automatically using cache size of 3623 MB
+2017-07-17T15:42:59.896409000 40.068800s error: TCP socket creation failed for port 29015: Address already in use.
+2017-07-17T16:15:11.981577000 40.037492s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T16:15:11.986390000 40.042300s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T16:15:11.986430000 40.042339s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T16:15:12.019105000 40.075013s info: Automatically using cache size of 3488 MB
+2017-07-17T16:15:12.019937000 40.075845s error: TCP socket creation failed for port 29015: Address already in use.
+2017-07-17T17:04:41.536613000 40.036981s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T17:04:41.541437000 40.041800s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T17:04:41.541479000 40.041840s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T17:04:41.575375000 40.075737s info: Automatically using cache size of 3148 MB
+2017-07-17T17:04:41.575868000 40.076229s error: TCP socket creation failed for port 29015: Address already in use.
+2017-07-17T17:08:07.138191000 40.029523s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-07-17T17:08:07.142967000 40.034294s notice: Running on Darwin 16.3.0 x86_64
+2017-07-17T17:08:07.143031000 40.034356s notice: Loading data from directory /Users/boyer/Desktop/checkpoint/rethinkdb_data
+2017-07-17T17:08:07.172789000 40.064114s info: Automatically using cache size of 3205 MB
+2017-07-17T17:08:17.179167000 50.070848s notice: Listening for intracluster connections on port 29015
+2017-07-17T17:08:17.221287000 50.112968s notice: Listening for client driver connections on port 28015
+2017-07-17T17:08:17.221553000 50.113234s notice: Listening for administrative HTTP connections on port 8080
+2017-07-17T17:08:18.383395000 51.275147s info: Table 3095d32a-218e-4895-bca3-7411008469c8: Starting a new Raft election for term 4.
+2017-07-17T17:08:18.406068000 51.297820s info: Table 3095d32a-218e-4895-bca3-7411008469c8: This server is Raft leader for term 4. Latest log index is 8.
+2017-07-17T17:08:18.429188000 51.320940s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: Starting a new Raft election for term 11.
+2017-07-17T17:08:18.452557000 51.344309s info: Table e51162e3-d97c-480b-9f0a-52f209e53a3b: This server is Raft leader for term 11. Latest log index is 30.
+2017-07-17T17:08:19.030039000 51.921792s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: Starting a new Raft election for term 4.
+2017-07-17T17:08:19.050868000 51.942620s info: Table 9387415b-9d0e-4349-ae1c-c69233ff4b22: This server is Raft leader for term 4. Latest log index is 8.
+2017-07-17T17:08:27.231801000 60.123908s notice: Listening on cluster addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::85f:b1ff:fe63:df31%9, fe80::101c:26f5:6cce:c016%4, fe80::8c84:83b3:a1e:3b8e%10
+2017-07-17T17:08:37.235678000 70.128140s notice: Listening on driver addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::85f:b1ff:fe63:df31%9, fe80::101c:26f5:6cce:c016%4, fe80::8c84:83b3:a1e:3b8e%10
+2017-07-17T17:08:47.243828000 80.136715s notice: Listening on http addresses: 127.0.0.1, 192.168.1.116, ::1, fe80::1%1, fe80::85f:b1ff:fe63:df31%9, fe80::101c:26f5:6cce:c016%4, fe80::8c84:83b3:a1e:3b8e%10
+2017-07-17T17:08:47.243843000 80.136730s notice: Server ready, "MacBook_Pro_de_boyer_local_je4" 9196e881-9845-4218-9b26-6e257cedad6f

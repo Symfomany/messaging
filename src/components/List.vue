@@ -1,11 +1,9 @@
 <template>
   <div>
     <v-list dark two-line>
-      <transition-group name="list">
           <div  v-for="item in datas.videos" :key="item.id.videoId">
             <item :key="item.id.videoId" :item="item"></item>
           </div>
-      </transition-group>
     </v-list>
     <v-btn @click.native="more" block secondary dark>Voir plus</v-btn>
   </div>

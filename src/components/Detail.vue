@@ -1,8 +1,7 @@
 <template>
-  <transition name="slide">
       <div class="detail">
           <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs10 sm6 offset-sm3>
                   <iframe width="100%"  height="300" :src="'//www.youtube.com/embed/'+ video.id" frameborder="0" allowfullscreen></iframe>
                     <div>
                       <h3 class="headline mb-0">{{ video.snippet.title }}</h3>
@@ -69,18 +68,18 @@
                       </v-flex>
                     </v-layout>
                   </div>
-                
             </v-flex>
           </v-layout>
 
+          
 
            <v-snackbar
             :top="true"
             v-model="snackbar"> {{ textSnackbar }}
               <v-btn flat class="pink--text" @click.native="snackbar = false">Close</v-btn>
           </v-snackbar>
+          <br /><br /><br />
       </div>
-    </transition>
 </template>
 
 <script>

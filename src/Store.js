@@ -8,7 +8,9 @@ export const Store = {
     data: {
         drawer: false,
         search: 'Angular',
-        videos: []
+        videos: [],
+        isAuth: false,
+        me: {}
     },
 
     load() {
@@ -62,7 +64,21 @@ export const Store = {
 
     already(id) {
         return axios.get(`http://localhost:3000/already/${id}`);
-    }
+    },
+
+    checkAuth() {
+        let fb = localStorage.getItem('fb')
+        if (fb) {
+            this.data.isAuth = true
+            let user = JSON.parse(localStorage.getItem('fb'));
+            if (user) {
+                this.data.me = user
+            }
+        }
+        else {
+            this.data.isAuth = false
+        }
+    },
 
 
 }

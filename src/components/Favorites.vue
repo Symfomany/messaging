@@ -31,24 +31,24 @@
 </template>
 
 <script>
-export default {
-  name: 'favorites',
-  data(){
-    return {
-      videos: [],
-    }
-  },
-  methods: {
-   go(id){
-      this.$router.push(`/detail/${id}`)
+  export default {
+    name: 'favorites',
+    data(){
+      return {
+        videos: [],
+      }
     },
-   
-  },
- created(){
-    this.$http.get('http://localhost:3000/likes').then((res) => {
-      this.videos = res.body;
-    })
-  },
-  
-}
+    methods: {
+    go(id){
+        this.$router.push(`/detail/${id}`)
+      },
+    
+    },
+  created(){
+      this.$http.get('http://localhost:3000/likes').then((res) => {
+        this.videos = res.body;
+      })
+    },
+    
+  }
 </script>

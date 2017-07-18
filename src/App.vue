@@ -2,22 +2,16 @@
   <v-app dark>
     <sidebar></sidebar>
     <toolbar></toolbar>
+
     <v-snackbar v-model="snackbar"> Un ami a ajouté une vidéo favorie
         <v-btn flat class="pink--text" @click.native="snackbar = false">Close</v-btn>
     </v-snackbar>
+
     <main>
       <v-container fluid>
-      <fb-signin-button
-        :params="fbSignInParams"
-        @success="onSignInSuccess"
-        @error="onSignInError">
-       Se connecter avec Julien Boyer
-      </fb-signin-button>
         <router-view></router-view>
       </v-container>
     </main>
-
-    
   <navigation></navigation>
 
   </v-app>
@@ -27,7 +21,6 @@
 import Sidebar from '@/components/Sidebar'
 import Toolbar from '@/components/Toolbar'
 import Navigation from '@/components/Navigation'
-
 import {Store} from '@/Store.js'
 
 
@@ -37,23 +30,10 @@ export default {
   data(){
     return {
       snackbar: false,
-      url: '',
-      fbSignInParams: {
-        scope: 'email,user_likes',
-        return_scopes: true
-      }
+      url: ''
     }
   },
-  methods: {
-    onSignInSuccess (response) {
-      FB.api('/me', dude => {
-        console.log(`Good to see you, ${dude.name}.`)
-      })
-    },
-    onSignInError (error) {
-      console.log('OH NOES', error)
-    }
-  },
+  
   created(){
 
   },
@@ -65,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .fb-signin-button {
   /* This is where you control how the button looks. Be creative! */
   display: inline-block;
